@@ -1,0 +1,44 @@
+SQL> conn sys as sysdba
+Enter password:
+Connected.
+SQL> CREATE USER ejemplo IDENTIFIED BY ejemplo;
+
+User created.
+
+SQL> GRANT CONNECT TO ejemplo;
+
+Grant succeeded.
+
+SQL> GRANT RESOURCE TO ejemplo;
+
+Grant succeeded.
+
+SQL> conn
+Enter user-name: ejemplo
+Enter password:
+Connected.
+
+SQL> CREATE TABLE personas(
+  2     id NUMBER PRIMARY KEY,
+  3     nombre VARCHAR2(10),
+  4     apellido VARCHAR2(20),
+  5     edad NUMBER(3));
+
+Table created.
+
+SQL> select * from personas;
+
+no rows selected
+
+SQL> INSERT INTO employee (id, nombre, apellido, edad) VALUES
+  2  (789456123, ‘Carlos',’Perez’, 22);
+
+1 row created.
+
+SQL> CONN SYS AS SYSDBA
+Enter password:
+Connected.
+SQL> alter system set local_listener = '127.0.0.1:1521' scope=memory;
+
+System altered.
+
